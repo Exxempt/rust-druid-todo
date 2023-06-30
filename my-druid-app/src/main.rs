@@ -10,6 +10,12 @@ use druid::{Data, Lens};
 use druid::widget::LensWrap;
 use druid::widget::TextBox;
 
+#[derive(Clone, Data, Lens)]
+struct TodoList {
+    items: Vector<String>,
+    next_item: String,
+}
+
 fn build_ui() -> impl Widget<TodoList> {
     Split::columns(
         Container::new(
